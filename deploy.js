@@ -23,7 +23,7 @@ function installPM2() {
 function transferProjectToRemote(failed, successful) {
     return ssh.putDirectory(
         '../riot-express-todo-list',
-        'express-todo-list-temp', {
+        '/home/ubuntu/riot-express-todo-list-temp', {
             recursive: true,
             concurrency: 1,
             validate: function(itemPath) {
@@ -48,7 +48,7 @@ function transferProjectToRemote(failed, successful) {
 // creates a temporary folder on the remote server
 function createRemoteTempFolder() {
     return ssh.execCommand(
-        'rm -rf riot-express-todo-list-temp && mkdir riot-express-todo-list-temp', {
+        'rm -rf riot-express-todo-list-temp && mkdir riot-express-todo-list', {
             cwd: '/home/ubuntu'
         });
 }
